@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  customerservice:
+    image: customerservice
+    container_name: customerservice
+    ports:
+      - "5244:8080"
+
+  orderservice:
+    image: orderservice
+    container_name: orderservice
+    ports:
+      - "5235:8080"
+
+  apigateway:
+    image: apigateway
+    container_name: apigateway
+    ports:
+      - "5180:8080"
+    depends_on:
+      - customerservice
+      - orderservice
