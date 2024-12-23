@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "CustomerGrpc";
+
+service CustomerService {
+  rpc GetCustomerInfo (CustomerRequest) returns (CustomerResponse);
+}
+
+message CustomerRequest {
+  string customerId = 1;
+}
+
+message CustomerResponse {
+  string customerId = 1;
+  string name = 2;
+  string email = 3;
+}
